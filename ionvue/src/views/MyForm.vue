@@ -11,16 +11,24 @@
     </ion-header>
     
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">This is MyForm!</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        <strong class="capitalize">Here is My Form ...</strong>
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+      <ion-list lines="full" class="ion-no-margin">
+        <ion-list-header lines="full">
+          <ion-label>My Form with Inputs</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label position="stacked">ชื่อ</ion-label>
+          <ion-input placeholder="ชื่อจริง เช่น ธีรชัย"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">นามสกุล</ion-label>
+          <ion-input placeholder="นามสกุล เช่น หลาวทอง"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">ที่อยู่</ion-label>
+          <ion-textarea placeholder="ใส่ที่อยู่ เช่น 22/33 ซอยถี่ยิบ"></ion-textarea>
+        </ion-item>
+      </ion-list>
     </ion-content>
 
   </ion-page>
@@ -28,11 +36,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { } from '@ionic/vue';
+import { IonInput, IonTextarea } from '@ionic/vue';
 
 export default defineComponent({
   name: 'MyForm',
   components: {
+    IonInput,
+    IonTextarea
   }
 });
 </script>
@@ -47,7 +57,7 @@ export default defineComponent({
   transform: translateY(-50%);
 } */
 
-#container strong {
+/* #container strong {
   font-size: 20px;
   line-height: 26px;
 }
@@ -57,7 +67,7 @@ export default defineComponent({
   line-height: 22px;
   color: #8c8c8c;
   margin: 0;
-}
+} */
 
 #container a {
   text-decoration: none;
