@@ -11,7 +11,7 @@ export default class MyFormData {
   get rules() {
     return {
       firstName: { required }, // Matches state.firstName
-      lastName: { required }, // Matches state.lastName
+      lastName: { }, // Matches state.lastName
       email: { required, email },
       address: { required },
     };
