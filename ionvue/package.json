@@ -36,6 +36,8 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^2.0.0-rc.16",
     "@vue/vue3-jest": "^27.0.0-alpha.3",
+    "@vuelidate/core": "^2.0.0-alpha.44",
+    "@vuelidate/validators": "^2.0.0-alpha.31",
     "babel-jest": "^27.3.1",
     "cypress": "^8.7.0",
     "eslint": "^8.4.1",

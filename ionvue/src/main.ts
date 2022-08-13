@@ -24,7 +24,21 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 /* Global Components */
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonList, IonListHeader, IonItem, IonIcon, IonLabel } from '@ionic/vue';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonList,
+  IonListHeader,
+  IonItem,
+  IonLabel,
+  IonButton,
+  IonIcon
+} from '@ionic/vue';
 
 const app = createApp(App)
   .use(IonicVue)
@@ -39,8 +53,9 @@ const app = createApp(App)
   .component('ion-list', IonList)
   .component('ion-list-header', IonListHeader)
   .component('ion-item', IonItem)
-  .component('ion-icon', IonIcon)
-  .component('ion-label', IonLabel);
+  .component('ion-label', IonLabel)
+  .component('ion-button', IonButton)
+  .component('ion-icon', IonIcon);
   
 router.isReady().then(() => {
   app.mount('#app');
