@@ -25,18 +25,28 @@
           <ion-input placeholder="นามสกุล เช่น หลาวทอง"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-label position="stacked">email</ion-label>
+          <ion-input placeholder="อีเมล์ เช่น teeralao@yourmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label position="stacked">ที่อยู่</ion-label>
           <ion-textarea placeholder="ใส่ที่อยู่ เช่น 22/33 ซอยถี่ยิบ"></ion-textarea>
         </ion-item>
       </ion-list>
+
+      <pre></pre>
     </ion-content>
 
   </ion-page>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, reactive } from 'vue';
 import { IonInput, IonTextarea } from '@ionic/vue';
+
+import MyFormData from '../models/MyFormData';
+
+const formData = reactive(new MyFormData());
 
 export default defineComponent({
   name: 'MyForm',
