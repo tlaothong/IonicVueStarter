@@ -11,7 +11,7 @@
     </ion-header>
     
     <ion-content :fullscreen="true">
-      <form>
+      <form novalidate @submit.prevent="onSave">
         <ion-list lines="full" class="ion-no-margin">
           <ion-list-header lines="full">
             <ion-label>My Form with Inputs</ion-label>
@@ -35,13 +35,12 @@
           </ion-item>
         </ion-list>
         <section>
-          <ion-button color="success">OK</ion-button>
-          <ion-button color="danger">Cancel</ion-button>
+          <ion-button color="success" type="submit">OK</ion-button>
+          <ion-button color="danger" @click="onCancel">Cancel</ion-button>
         </section>
       </form>
       <pre>{{ formData }}</pre>
       <br />
-      <hr />
       <pre>{{ model }}</pre>
     </ion-content>
 
@@ -55,6 +54,19 @@ import { IonInput, IonTextarea } from '@ionic/vue';
 import MyFormData from '../models/MyFormData';
 
 const formData = reactive(new MyFormData());
+const model = formData.toValidator();
+
+async function onSave() {
+ if (await model.value.$validate()) {
+  alert('Save!');
+ } else {
+  alert('Error!');
+ }
+}
+
+function onCancel() {
+  alert('Cancelled!!');
+}
 
 export default defineComponent({
   name: 'MyForm',
@@ -63,11 +75,11 @@ export default defineComponent({
     IonTextarea
   },
   setup() {
-    const model = formData.toValidator();
-
     return {
       formData,
       model,
+      onSave,
+      onCancel,
     };
   }
 });
