@@ -19,7 +19,7 @@
 
           <ion-item>
             <ion-label position="stacked">
-              <ion-icon v-if="!model.firstName.$dirty && !model.firstName.$model" :icon="entryStates.unlinkOutline"></ion-icon>
+              <ion-icon v-if="!model.firstName.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
               <ion-icon v-else-if="model.firstName.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
               <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
               ชื่อ
@@ -46,7 +46,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="stacked">
-              <ion-icon v-if="!model.address.$dirty && !model.address.$model" :icon="entryStates.unlinkOutline"></ion-icon>
+              <ion-icon v-if="!model.address.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
               <ion-icon v-else-if="model.address.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
               <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
               ที่อยู่
