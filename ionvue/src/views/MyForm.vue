@@ -11,30 +11,38 @@
     </ion-header>
     
     <ion-content :fullscreen="true">
-      <ion-list lines="full" class="ion-no-margin">
-        <ion-list-header lines="full">
-          <ion-label>My Form with Inputs</ion-label>
-        </ion-list-header>
+      <form>
+        <ion-list lines="full" class="ion-no-margin">
+          <ion-list-header lines="full">
+            <ion-label>My Form with Inputs</ion-label>
+          </ion-list-header>
 
-        <ion-item>
-          <ion-label position="stacked">ชื่อ</ion-label>
-          <ion-input placeholder="ชื่อจริง เช่น ธีรชัย"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">นามสกุล</ion-label>
-          <ion-input placeholder="นามสกุล เช่น หลาวทอง"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">email</ion-label>
-          <ion-input placeholder="อีเมล์ เช่น teeralao@yourmail.com"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">ที่อยู่</ion-label>
-          <ion-textarea placeholder="ใส่ที่อยู่ เช่น 22/33 ซอยถี่ยิบ"></ion-textarea>
-        </ion-item>
-      </ion-list>
-
-      <pre></pre>
+          <ion-item>
+            <ion-label position="stacked">ชื่อ</ion-label>
+            <ion-input v-model="model.firstName.$model" placeholder="ชื่อจริง เช่น ธีรชัย"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">นามสกุล</ion-label>
+            <ion-input v-model="model.lastName.$model" placeholder="นามสกุล เช่น หลาวทอง"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">email</ion-label>
+            <ion-input v-model="model.email.$model" placeholder="อีเมล์ เช่น teeralao@yourmail.com"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">ที่อยู่</ion-label>
+            <ion-textarea v-model="model.address.$model" placeholder="ใส่ที่อยู่ เช่น 22/33 ซอยถี่ยิบ"></ion-textarea>
+          </ion-item>
+        </ion-list>
+        <section>
+          <ion-button color="success">OK</ion-button>
+          <ion-button color="danger">Cancel</ion-button>
+        </section>
+      </form>
+      <pre>{{ formData }}</pre>
+      <br />
+      <hr />
+      <pre>{{ model }}</pre>
     </ion-content>
 
   </ion-page>
@@ -53,21 +61,30 @@ export default defineComponent({
   components: {
     IonInput,
     IonTextarea
+  },
+  setup() {
+    const model = formData.toValidator();
+
+    return {
+      formData,
+      model,
+    };
   }
 });
 </script>
 
 <style scoped>
-/* #container {
+/* 
+#container {
   text-align: center;
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-} */
+}
 
-/* #container strong {
+#container strong {
   font-size: 20px;
   line-height: 26px;
 }
@@ -77,7 +94,8 @@ export default defineComponent({
   line-height: 22px;
   color: #8c8c8c;
   margin: 0;
-} */
+}
+*/
 
 #container a {
   text-decoration: none;
