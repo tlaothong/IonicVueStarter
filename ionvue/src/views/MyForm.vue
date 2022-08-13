@@ -18,39 +18,19 @@
           </ion-list-header>
 
           <ion-item>
-            <ion-label position="stacked">
-              <ion-icon v-if="!model.firstName.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
-              <ion-icon v-else-if="model.firstName.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
-              <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
-              ชื่อ
-            </ion-label>
+            <InputState :model="model.firstName" label="ชื่อ" />
             <ion-input v-model="model.firstName.$model" placeholder="ชื่อจริง เช่น ธีรชัย"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">
-              <ion-icon v-if="!model.lastName.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
-              <ion-icon v-else-if="model.lastName.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
-              <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
-              นามสกุล
-            </ion-label>
+            <InputState :model="model.lastName" label="นามสกุล" />
             <ion-input v-model="model.lastName.$model" placeholder="นามสกุล เช่น หลาวทอง"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">
-              <ion-icon v-if="!model.email.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
-              <ion-icon v-else-if="model.email.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
-              <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
-              email
-            </ion-label>
+            <InputState :model="model.email" label="email" />
             <ion-input v-model="model.email.$model" placeholder="อีเมล์ เช่น teeralao@yourmail.com"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">
-              <ion-icon v-if="!model.address.$dirty" :icon="entryStates.unlinkOutline"></ion-icon>
-              <ion-icon v-else-if="model.address.$error" :icon="entryStates.alertCircleOutline" color="danger"></ion-icon>
-              <ion-icon v-else :icon="entryStates.linkOutline"></ion-icon>
-              ที่อยู่
-            </ion-label>
+            <InputState :model="model.address" label="ที่อยู่" />
             <ion-textarea v-model="model.address.$model" rows="3" auto-grow="true" placeholder="ใส่ที่อยู่ เช่น 22/33 ซอยถี่ยิบ"></ion-textarea>
           </ion-item>
         </ion-list>
@@ -77,7 +57,7 @@ import { defineComponent, reactive } from 'vue';
 import { IonInput, IonTextarea } from '@ionic/vue';
 import { unlinkOutline, linkOutline, alertCircleOutline } from 'ionicons/icons';
 
-
+import InputState from '../components/InputState.vue';
 import MyFormData from '../models/MyFormData';
 
 const formData = reactive(new MyFormData());
@@ -106,7 +86,8 @@ export default defineComponent({
   components: {
     IonInput,
     IonTextarea,
-  },
+    InputState,
+},
   setup() {
     return {
       formData,
@@ -153,9 +134,5 @@ export default defineComponent({
 
 form ion-item {
   padding-top: 8px;
-}
-
-form ion-label ion-icon {
-  vertical-align: bottom;
 }
 </style>
