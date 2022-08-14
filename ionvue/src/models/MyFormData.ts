@@ -18,6 +18,6 @@ export default class MyFormData {
   }
 
   toValidator() {
-    return useVuelidate(this.rules, this);
+    return useVuelidate(this.rules, this, { $rewardEarly: false });
   }
 }
