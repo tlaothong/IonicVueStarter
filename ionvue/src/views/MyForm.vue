@@ -55,19 +55,12 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import { IonInput, IonTextarea } from '@ionic/vue';
-import { unlinkOutline, linkOutline, alertCircleOutline } from 'ionicons/icons';
 
 import InputState from '../components/InputState.vue';
 import MyFormData from '../models/MyFormData';
 
 const formData = reactive(new MyFormData());
 const model = formData.toValidator();
-
-const entryStates = {
-  unlinkOutline,
-  linkOutline,
-  alertCircleOutline
-};
 
 async function onSave() {
  if (await model.value.$validate()) {
@@ -94,40 +87,12 @@ export default defineComponent({
       model,
       onSave,
       onCancel,
-      entryStates,
     };
   }
 });
 </script>
 
 <style scoped>
-/* 
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-*/
-
-#container a {
-  text-decoration: none;
-}
-
 .label-stacked.sc-ion-label-md-h {
   transform: scale(1);
 }
